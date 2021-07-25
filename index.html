@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unslash API</title>
+</head>
+<style>
+    img{
+        width: 200px;
+    }
+</style>
+<body>
+    <div class="container"></div>
+</body>
+<script>
+    fetch("https://api.unsplash.com/photos/?client_id=J338cKVlLK5XFqt_zFGo2Tc2lY9ByE3BMFT36f0MZyE")
+    .then((res) => {
+        const data = res.json();
+        return data;
+    })
+    .then((data) => {
+        for(let i = 0; i < data.length; i++){
+            let container = document.querySelector('.container');
+            let img = document.createElement('img');
+            img.setAttribute("src", data[i].urls.small);
+            container.append(img)
+        }
+    })
+</script>
+</html>
